@@ -78,10 +78,16 @@ app.get("/listings/search",async(req,res)=>{
     let alllistings=await listing.find({category:search});
     res.render("listings/home.ejs",{alllistings})
 })
+app.get("/",(req,res)=>{
+    res.render("listings/home.ejs")
+})
 app.use("/listings",listingRouter);
 app.use("/listings/:id/review",reviewRouter);
 app.use("/listings/user",userRouter);
 
+app.use("*",(req,res)=>{
+    res.send("invalid request");
+})
 app.use((err,req,res,next)=>{
     let {status=400,message="error message"}=err;
     res.render("listings/error.ejs",{status,message})
