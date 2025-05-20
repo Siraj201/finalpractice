@@ -19,6 +19,7 @@ import passport from 'passport';
 import localStrategy from 'passport-local';
 import passportLocalMongoose from 'passport-local-mongoose';
 import { listing } from './models/listings.js';
+import { listing } from './models/listings.js';
 import MongoStore from 'connect-mongo';
 const options={
     secret:"mysupersecretstring",
