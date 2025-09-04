@@ -93,7 +93,7 @@ app.use("/listings/user",userRouter);
 app.use((err,req,res,next)=>{
     let {status=400,message="error message"}=err;
     res.render("listings/error.ejs",{status,message})
-})
+});
 app.listen(3000,()=>{
     console.log("app is working using port 3000")
 });
